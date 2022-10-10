@@ -3,38 +3,36 @@ package com.bridgelabz.address.book.system;
 import java.util.Scanner;
 
 public class AddressBookMain {
+    Person person = new Person();
+
     public static void main(String[] args) {
-        System.out.println("Welcome to AddressBook System!!!");
-
+        System.out.println("Welcome to AddressBook System");
         AddressBookMain addressBookMain = new AddressBookMain();
-        Person person = addressBookMain.createContact();
 
+        addressBookMain.addContact();
+
+    }
+
+    public void addContact() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first name");
+        person.setFirstName(sc.next());
+        System.out.println("Enter last name");
+        person.setLastName(sc.next());
+        System.out.println("Enter address");
+        person.setAddress(sc.next());
+        System.out.println("Enter city");
+        person.setCity(sc.next());
+        System.out.println("Enter state");
+        person.setState(sc.next());
+        System.out.println("Enter ZipCode");
+        person.setZip(sc.nextInt());
+        System.out.println("Enter Phone Number");
+        person.setPhoneNumber(sc.nextLong());
+        System.out.println("Enter Email");
+        person.setEmail(sc.next());
+
+        System.out.println("Add Contact Successfully");
         System.out.println(person);
     }
-
-    Person createContact() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter first name");
-        String firstName = scanner.next();
-        System.out.println("Enter last name");
-        String lastName = scanner.next();
-        System.out.println("Enter address");
-        String address = scanner.next();
-        System.out.println("Enter city");
-        String city = scanner.next();
-        System.out.println("Enter state");
-        String state = scanner.next();
-        System.out.println("Enter ZipCode");
-        int zipCode = scanner.nextInt();
-        System.out.println("Enter phoneNumber");
-        long phoneNumber = scanner.nextLong();
-        System.out.println("Enter Email");
-        String email = scanner.next();
-
-        System.out.println("Create Contact Successfully");
-
-        Person person = new Person(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
-        return person;
-    }
-
 }
